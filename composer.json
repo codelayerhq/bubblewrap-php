@@ -1,0 +1,20 @@
+{
+    "name": "codelayer/bubblewrap",
+    "description": "Sandbox console commands using bubblewrap",
+    "type": "library",
+    "require": {
+        "symfony/process": "^5.2"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Martin Wagner",
+            "email": "martin@codelayer.de"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Codelayer\\Bubblewrap\\": "src/"
+        }
+    }
+}
