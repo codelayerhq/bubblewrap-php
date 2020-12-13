@@ -325,6 +325,30 @@ class Bubblewrap
         return $this->push('--unshare-all');
     }
 
+    /**
+     * Use a custom user id in the sandbox.
+     *
+     * @param integer|string $uid
+     *
+     * @return $this
+     */
+    public function uid($uid)
+    {
+        return $this->push(['--uid', $uid]);
+    }
+
+    /**
+     * Use a custom group id in the sandbox.
+     *
+     * @param integer|string $gid
+     *
+     * @return $this
+     */
+    public function gid($gid)
+    {
+        return $this->push(['--gid', $gid]);
+    }
+
     private function push($flags)
     {
         if (is_array($flags)) {
