@@ -16,5 +16,13 @@
         "psr-4": {
             "Codelayer\\Bubblewrap\\": "src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Codelayer\\Bubblewrap\\Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.5"
     }
 }

@@ -33,7 +33,7 @@ class Bubblewrap
     {
         $command = $this->getCommand($sandboxedCommand);
 
-        $process = new Process(array_merge($command, $sandboxedCommand));
+        $process = new Process($command);
         $process->run();
 
         if (!$process->isSuccessful()) {
@@ -57,10 +57,10 @@ class Bubblewrap
         array_unshift($command, $this->binary);
 
         if ($this->clearEnv) {
-            array_merge(['env', '-i'], $command);
+            $command = array_merge(['env', '-i'], $command);
         }
         
-        return $command;
+        return array_merge($command, $sandboxedCommand);
     }
 
     /**
