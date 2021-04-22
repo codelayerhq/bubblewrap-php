@@ -12,7 +12,7 @@ class BubblewrapTest extends TestCase
      */
     private $bubblewrap;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->bubblewrap = new Bubblewrap();
     }
@@ -31,7 +31,7 @@ class BubblewrapTest extends TestCase
             ->exec(['ls', '/']);
 
         $this->assertTrue($output->isSuccessful());
-        $this->assertContains('lib', $output->getOutput());
+        $this->assertStringContainsString('lib', $output->getOutput());
     }
     
     public function testClearEnvironment()
@@ -43,7 +43,7 @@ class BubblewrapTest extends TestCase
         $output = $this->bubblewrap
             ->exec(['env']);
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'hello world',
             $output->getOutput()
         );
@@ -52,7 +52,7 @@ class BubblewrapTest extends TestCase
             ->clearEnv()
             ->exec(['env']);
         
-        $this->assertNotContains(
+        $this->assertStringNotContainsString(
             'hello world',
             $output->getOutput()
         );
