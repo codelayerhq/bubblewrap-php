@@ -296,6 +296,16 @@ class Bubblewrap
     }
 
     /**
+     * Retain the network namespace (can only combine with --unshare-all).
+     *
+     * @return $this
+     */
+    public function shareNet()
+    {
+        return $this->push('--share-net');
+    }
+
+    /**
      * Create a new uts namespace.
      *
      * @return $this
